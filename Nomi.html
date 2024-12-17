@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Light Mode */
+        .light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #111111;
+            color: #ffffff;
+        }
+
+        /* Toggle Button (Radio Style) */
+        .toggle-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .radio-btn {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #03e9f4;
+            border-radius: 50%;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .radio-btn:checked {
+            background-color: #03e9f4;
+            box-shadow: 0 0 10px #03e9f4;
+        }
+
+        /* Neon Buttons */
+        .neon-button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #fff;
+            background: #111;
+            border: 2px solid #03e9f4;
+            border-radius: 5px;
+            text-align: center;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .neon-button i {
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .neon-button:hover {
+            background: #03e9f4;
+            color: #111;
+            box-shadow: 0 0 10px #03e9f4;
+        }
+
+        .neon-button:hover i {
+            color: #111;
+        }
+
+        /* Links Section */
+        .links-section {
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 20px auto;
+            padding: 20px;
+            background: #1f1f1f;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            width: 80%;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+
+    <!-- Dark/Light Mode Toggle -->
+    <div class="toggle-container">
+        <label>
+            <input type="radio" name="theme" class="radio-btn" id="lightMode"> Light
+        </label>
+        <label>
+            <input type="radio" name="theme" class="radio-btn" id="darkMode" checked> Dark
+        </label>
+    </div>
+
+    <!-- Header -->
+    <header class="text-center mt-10">
+        <h1 class="text-4xl font-bold">Welcome to My App</h1>
+        <p class="mt-2">Scroll through the important links</p>
+    </header>
+
+    <!-- Links Section -->
+    <section class="links-section">
+        <a href="https://chat.openai.com/" class="neon-button">
+            <i class="fas fa-comment-dots" style="color: #FF5733;"></i> ChatGPT
+        </a>
+        <a href="https://gemini.google.com/" class="neon-button">
+            <i class="fas fa-robot" style="color: #00FF00;"></i> Gemini AI
+        </a>
+        <a href="https://github.com/features/copilot" class="neon-button">
+            <i class="fas fa-code" style="color: #3498db;"></i> Copilot AI
+        </a>
+        <a href="https://deepai.org/machine-learning-model/text2img" class="neon-button">
+            <i class="fas fa-image" style="color: #F39C12;"></i> Text-to-Image Generator
+        </a>
+        <a href="https://poki.com/" class="neon-button">
+            <i class="fas fa-gamepad" style="color: #9b59b6;"></i> Online Game
+        </a>
+        <a href="https://character.ai/chat/pkIuIJ3C8o0blOrOvuDtBKKQg3hl4nmoTTN3n3fRJPg" class="neon-button">
+            <i class="fas fa-comments" style="color: #FF9800;"></i> Character AI
+        </a>
+        <a href="https://example.com/apk" class="neon-button">
+            <i class="fas fa-download" style="color: #e74c3c;"></i> Download APK
+        </a>
+        <a href="https://example.com/blog" class="neon-button">
+            <i class="fas fa-blog" style="color: #2ecc71;"></i> Read My Blog
+        </a>
+        <a href="https://example.com/portfolio" class="neon-button">
+            <i class="fas fa-briefcase" style="color: #f1c40f;"></i> My Portfolio
+        </a>
+        <a href="https://example.com/tutorials" class="neon-button">
+            <i class="fas fa-chalkboard-teacher" style="color: #8e44ad;"></i> Tutorials
+        </a>
+        <a href="https://example.com/about" class="neon-button">
+            <i class="fas fa-user" style="color: #1abc9c;"></i> About Me
+        </a>
+        <a href="https://example.com/contact" class="neon-button">
+            <i class="fas fa-envelope" style="color: #e67e22;"></i> Contact Me
+        </a>
+        <a href="https://example.com/shop" class="neon-button">
+            <i class="fas fa-store" style="color: #34495e;"></i> My Shop
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center mt-10">
+        <p>&copy; 2024 MyApp. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Theme Toggle using Radio Buttons
+        document.getElementById("lightMode").addEventListener("change", () => {
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
+        });
+
+        document.getElementById("darkMode").addEventListener("change", () => {
+            document.body.classList.remove("light-mode");
+            document.body.classList.add("dark-mode");
+        });
+    </script>
+</body>
+</html>
